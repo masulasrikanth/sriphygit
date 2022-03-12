@@ -1,0 +1,29 @@
+r_role=input("Enter root role name:")
+print(r_role)
+r_h=[r_role]
+sub_role=''
+usr_dict={}
+print("Operations:\n 1.Add sub role 2.Display roles 3.Delete role 4.Add Use 5.Display Users 9.Height of the role hierachy")
+While(1):
+    ch=int(input("Operations to be performed:"))
+    if ch==1:
+        sub_role=input("Enter sub role name:")
+        rep_to=input("Enter reporting to role name:")
+        r_h.append(sub_role)
+    elif ch==2:
+        for i in r_h:
+            print(i)
+    elif ch==3:
+        del_role=input("Enter the role to be declared:")
+        r_t=input('Enter the role to be transferred:')
+        i = r_h.index(del_role)
+        r_h = r_h[:i]+[r_t]+r_h[i+1:]
+    elif ch==4:
+        usr_name=input("Enter user name:")
+        role=input("Enter role:")
+        usr_dict={usr_name:role}
+    elif ch==5:
+        for i in usr_dict:
+            print(i,'----->',usr_dict[i])
+    elif ch==9:
+        print(len(r_h))
